@@ -28,7 +28,7 @@ route print
 arp -A
 ```
 
-# Network connections
+### Network connections
 ```
 netstat -ano
 ```
