@@ -17,7 +17,7 @@ net user morph3
 
 ### Crosscheck local and domain too
 ```
-net user morph3 /domain
+net user Administrator /domain
 net group Administrators /domain
 ```
 
