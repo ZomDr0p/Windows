@@ -12,7 +12,7 @@ hostname
 net users
 net localgroups
 net localgroup Administrators
-net user morph3
+net user Administrator
 ```
 
 ### Crosscheck local and domain too
