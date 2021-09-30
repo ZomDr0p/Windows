@@ -150,6 +150,45 @@ net user Administrator /domain
 net group Administrators /domain
 ```
 
+Create and add a user to Administrator groups
+```
+C:\Windows\system32> net user user1 /add
+The command completed successfully.
+
+C:\Windows\system32>net user user1 P4ssw0rd.
+The command completed successfully.
+
+C:\Windows\system32>net localgroup administrators user1 /add
+The command completed successfully.
+
+C:\Windows\system32>net user user1
+User name                    user1
+Full Name
+Comment
+User's comment
+Country/region code          000 (System Default)
+Account active               Yes
+Account expires              Never
+
+Password last set             30/ 09/ 2021 19:17:13
+Password expires              11/ 11/ 2021 19:17:13
+Password changeable           30/ 09/ 2021 19:17:13
+Password required            Yes
+User may change password     Yes
+
+Workstations allowed         All
+Logon script
+User profile
+Home directory
+Last logon                   Never
+
+Logon hours allowed          All
+
+Local Group Memberships      *Administrators       *Users
+Global Group memberships     *None
+The command completed successfully.
+```
+
 ### Network information
 ```
 ipconfig /all
@@ -180,4 +219,13 @@ tasklist /SVC
 ### Especially good with hotfix info
 ```
 wmic qfe get Caption,Description,HotFixID,InstalledOn
+```
+
+## Run AS Empire
+
+**runas**: Allows a user to run specific tools and programs with different permissions than the user's current logon provides. /savecred Indicates if the credentials have been previously saved by this user
+```
+C:\Windows\system32>runas /user:user1 /savecreds "cmd.exe /k whoami"
+Attempting to start cmd.exe /k whoami as user "DESKTOP-IN9L9R6\user1" ...
+desktop-in9l9r6\user1
 ```
